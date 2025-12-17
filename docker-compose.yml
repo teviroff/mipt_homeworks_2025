@@ -1,0 +1,14 @@
+services:
+  api: &main_app
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    image: hw2:${HW2_VERSION:-latest}
+    restart: always
+    env_file:
+      - path: .env
+        required: false
+    environment:
+      HW2_HOST: 0.0.0.0
+
+
